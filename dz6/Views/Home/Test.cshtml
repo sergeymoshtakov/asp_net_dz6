@@ -1,0 +1,25 @@
+﻿@model List<Product>
+
+@using dz6.Helpers
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва товару</th>
+            <th>Кількість</th>
+            <th>Ціна за одиницю</th>
+            <th>Сума</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Quantity</td>
+                <td>@product.PricePerUnit</td>
+                <td style="background-color: @ColorHelper.GetColor(product.TotalPrice)">@product.TotalPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>
